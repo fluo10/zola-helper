@@ -1,7 +1,10 @@
 extern crate clap;
 mod cli;
+mod cmd;
+use cmd::taxonomy;
+
 use clap::Clap;
-use cli::{Opts, SubCommand, Term, TermSubCommand, TermShow, };
+use cli::{Opts, SubCommand, Taxonomy, TaxonomySubCommand, TaxonomyShow, };
 
 
 fn main() {
@@ -19,14 +22,14 @@ fn main() {
         3 | _ => println!("Don't be crazy"),
     }
     match opts.subcmd {
-        SubCommand::Term(t) => {
+        SubCommand::Taxonomy(t) => {
             if t.debug {
                 println!("Printing debug info...");
             } else {
                 println!("Printing normally...");
             }
             match t.subcmd{
-                TermSubCommand::Show(t) => {
+                TaxonomySubCommand::Show(t) => {
                     println!("Term show")
                 }
             }

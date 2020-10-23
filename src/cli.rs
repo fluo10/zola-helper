@@ -15,25 +15,25 @@ pub struct Opts {
 #[derive(Clap)]
 pub enum SubCommand{
   #[clap(version = "0.1", author= "fluo10 <fluo10@fireturtle.net>", about = "Controls taxonomy term", )]
-  Term(Term),
+  Taxonomy(Taxonomy),
 }
 
 #[derive(Clap)]
-pub struct Term {
+pub struct Taxonomy {
     /// Print debug info
     #[clap(short)]
     pub debug: bool,
     #[clap(subcommand)]
-    pub subcmd: TermSubCommand,
+    pub subcmd: TaxonomySubCommand,
 }
 #[derive(Clap)]
-pub enum TermSubCommand{
+pub enum TaxonomySubCommand{
   #[clap(version = "0.1", author= "fluo10 <fluo10@fireturtle.net>", about = "Controls taxonomy term", )]
-  Show(TermShow),
+  Show(TaxonomyShow),
 }
 
 #[derive(Clap)]
-pub struct TermShow {
+pub struct TaxonomyShow {
     /// Print debug info
     #[clap(short)]
     pub debug: bool,
